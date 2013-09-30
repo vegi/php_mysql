@@ -70,7 +70,7 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
                       'Reproduzierbar: ' . $formcontent['repro'];
                               
     if(!$mail->Send()) {
-            die('Failed to send Email :(');
+            die('Failed');
     } else {
             echo 'Success!';
     }
