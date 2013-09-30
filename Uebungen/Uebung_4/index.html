@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submit us your Bug! Buuuuuuuuugs!</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+<body>
+
+	<h2>Bitte melde deinen Bug mit diesem Formular</h2>
+	
+	<form class="form" enctype="multipart/form-data" action="filebug.php" method="POST">
+            <h3>Login</h3>
+            <p class ="login">
+                <input type="text" name="username" id="username" placeholder="Username" required>
+		<label for="username"></label>
+               <input type="password" name="password" id="password" placeholder="Password" required>
+		<label for="password"></label>
+		</p>
+                <br>
+                
+            
+            <h3>Info</h3>
+		<p class="name">
+                    <input type="text" name="name" id="name" placeholder="John Doe" required/>
+			<label for="name">Name</label>
+		</p>
+	
+                
+		<p class="email">
+                    <input type="email" name="email" id="email" placeholder="mail@example.com" required/>
+			<label for="email">Email</label>
+		</p>
+		<p class="telefon">
+                    <input type="tel" name="telefon" id="telefon" placeholder="+41795555555" required/>
+			<label for="telefon">Telefon</label><br>    
+                        <input type="checkbox" name="callback" id="callback" required />
+                        Rückruf erforderlich?
+                        
+		</p>
+                
+                
+		<p class="web">
+			<input type="text" name="web" id="web" placeholder="www.example.com" required/>
+			<label for="web">Betreffende Website</label>
+		</p>
+                
+                <p class ="date">
+                    <input type="datetime-local" name="date" id="date" required/>
+                    <label for= "date">Datum</label>
+                </p>
+                
+                <p class ="prio">
+                    <input type="range" name="prio" id="prio" min="1" max="5"/>
+                    <label for="prio">Priorität</label>
+                </p>
+                
+                <p class="bugtype">
+                <select name="bugtype" id="bugtype">    
+                <option value="Absturz">Absturz</option>
+                <option value="Treiberproblem">Treiberproblem</option>
+                <option value="Anderes">Anderes</option>
+                </select>
+                <label for="bugtype">Bugtype</label>  
+		</p>
+                
+                
+                
+		<p class="text">
+			<textarea name="text" placeholder="Fehlerreport" required/></textarea><br>
+                        </p>
+                
+                <p class="screenshot">
+			<input type="file" name="screenshot" id="screenshot" />
+			<label for="screenshot">Screenshot</label>
+		</p>
+                        
+                <h3> Ist der Fall reproduzierbar? </h3>
+                <p class="repro">
+                        <input type="radio" name="repro" id="repro" value="ja">Ja<br>
+                        <input type="radio" name="repro" id="repro" value="nein">Nein<br>
+		</p>
+                        
+                
+		<p class="submit">
+			<input type="submit" value="Senden" />
+		</p>
+	</form>
+
+</body>
+</html>
