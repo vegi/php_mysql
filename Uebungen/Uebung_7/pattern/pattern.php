@@ -6,7 +6,7 @@ require 'config.php';
 class Post {  
         
         private $id;
-        private $author;
+        private $created;
         private $title;
         private $content;
         
@@ -21,14 +21,14 @@ class Post {
                  
                 $post = $pquery->fetch();
                 $this->setId($post->getId());
-                $this->setAuthor($post->getAuthor());
+                $this->setCreated($post->getCreated());
                 $this->setTitle($post->getTitle());
                 $this->setContent($post->getContent());
         }
         
         public function create() {
-                $sql = "INSERT INTO tbl_person (author, title, content) VALUES (:author, :title, :content)";
-                $fieldValueMapping = array(':author'=>$this->getAuthor(),':title'=>$this->getTitle(), ':content'=>$this->getContent());
+                $sql = "INSERT INTO tbl_person (created, title, content) VALUES (:created, :title, :content)";
+                $fieldValueMapping = array(':created'=>$this->getCreated(),':title'=>$this->getTitle(), ':content'=>$this->getContent());
         
                 $pquery = prepareSql($sql);
                 $pquery = executeSql($pquery, $fieldValueMapping);
@@ -36,8 +36,8 @@ class Post {
         }
         
         public function update() {
-                $sql = "UPDATE tbl_person SET author = :author, title = :title, content = :content WHERE id = :id";
-                $fieldValueMapping = array(':author'=>$this->getAuthor(),':title'=>$this->getTitle(), ':content'=>$this->getContent(), ':id'=>$this->getId());
+                $sql = "UPDATE tbl_person SET created = :created, title = :title, content = :content WHERE id = :id";
+                $fieldValueMapping = array(':created'=>$this->getCreated(),':title'=>$this->getTitle(), ':content'=>$this->getContent(), ':id'=>$this->getId());
                 
                 $pquery = prepareSql($sql);
                 $pquery = executeSql($pquery, $fieldValueMapping);
@@ -61,12 +61,12 @@ class Post {
                 return $this->id;
         }
         
-        public function setAuthor($author)         {
-                $this->author = $author;
+        public function setCreated($created)         {
+                $this->created = $created;
         }
         
-        public function getAuthor() {
-                return $this->author;
+        public function getCreated() {
+                return $this->created;
         }
         
         public function setTitle($title)         {
@@ -124,8 +124,8 @@ class PostTableGateway {
     }
     
     public function create($entry) {
-            $sql = "INSERT INTO tbl_person (author, title, content) VALUES (:author, :title, :content)";
-            $fieldValueMapping = array(':author'=>$entry->getAuthor(),':title'=>$entry->getTitle(), ':content'=>$entry->getContent());
+            $sql = "INSERT INTO tbl_person (created, title, content) VALUES (:created, :title, :content)";
+            $fieldValueMapping = array(':created'=>$entry->getCreated(),':title'=>$entry->getTitle(), ':content'=>$entry->getContent());
     
             $pquery = prepareSql($sql);
             $pquery = executeSql($pquery, $fieldValueMapping);
@@ -134,8 +134,8 @@ class PostTableGateway {
     }
     
     public function update($entry) {
-            $sql = "UPDATE tbl_person SET author = :author, title = :title, content = :content WHERE id = :id";
-            $fieldValueMapping = array(':author'=>$entry->getAuthor(),':title'=>$entry->getTitle(), ':content'=>$entry->getContent(), ':id'=>$entry->getId());
+            $sql = "UPDATE tbl_person SET created = :created, title = :title, content = :content WHERE id = :id";
+            $fieldValueMapping = array(':created'=>$entry->getCreated(),':title'=>$entry->getTitle(), ':content'=>$entry->getContent(), ':id'=>$entry->getId());
 
             $pquery = prepareSql($sql);
             $pquery = executeSql($pquery, $fieldValueMapping);
